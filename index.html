@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+    <meta charset="uft-8">
+</head>
+
+<body>
+    <a href="index.html">
+        <header>
+            <h1 id="tic">Tic</h1>
+            <h1 id="tac">Tac</h1>
+            <h1 id="toe">Toe</h1>
+        </header>
+    </a>
+    <main>
+        <table class="d-none" id="main-game">
+            <tr>
+                <td id="0" onclick="fillShape(this.id)"></td>
+                <td id="1" onclick="fillShape(this.id)"></td>
+                <td id="2" onclick="fillShape(this.id)"></td>
+            </tr>
+            <tr>
+                <td id="3" onclick="fillShape(this.id)"></td>
+                <td id="4" onclick="fillShape(this.id)"></td>
+                <td id="5" onclick="fillShape(this.id)"></td>
+            </tr>
+            <tr>
+                <td id="6" onclick="fillShape(this.id)"></td>
+                <td id="7" onclick="fillShape(this.id)"></td>
+                <td id="8" onclick="fillShape(this.id)"></td>
+            </tr>
+        </table>
+        <button id="btn-start" onclick="startGame()">START!</button>
+        <button id="btn-finish" class="d-none" onclick="startGame()"></div>
+    </main>
+    <footer>
+        <div id="players">
+            <h2 id="cross"><img src="./img/cross.png">0</h2>
+            <h2 id="circle" class="player-no-turn"><img src="./img/circle.png" />0</h2>
+        </div>
+        <div>© 2020 Copyright: Leonardo Michilena </div>
+    </footer>
+</body>
+
+</html>

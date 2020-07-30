@@ -1,0 +1,204 @@
+/* General style for the game header and main container*/
+
+* {
+    border-collapse: collapse;
+}
+body {
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+}
+header, main {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    align-items: center;
+    height: 50%;
+}
+
+/* Tic Tac Toe header title */
+a {
+    text-decoration: none;
+}
+h1 {
+    position: relative;
+    padding: 2rem;
+    font-size: 6rem;
+    margin: 0;
+    opacity: 0;
+    animation: disappear;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    /* Safari */
+    -webkit-animation: disappear;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: reverse;
+}
+#tic {
+    color: greenyellow;
+}
+#tac {
+    color: hotpink;
+    animation-delay: 1s;
+}
+#toe {
+    color: dodgerblue;
+    animation-delay: 2s;
+}
+
+
+/* Start and finish buttons */
+button {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    border-style: none;
+    background: none;
+    font-size: 3rem;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+    animation: disappear;
+    animation-duration: 3s;
+    /* Safari */
+    -webkit-animation: disappear;
+    -webkit-animation-duration: 3s;
+}
+/* Game field table and players X and O img */
+.main-game-block {
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    z-index: -1;
+    opacity: 25%;
+}
+table {
+    width: 30rem;
+    max-width: 50rem;
+    height: 30rem;
+    max-height: 50rem;
+    animation: disappear;
+    animation-duration: 5s;
+    /* Safari */
+    -webkit-animation: disappear;
+    -webkit-animation-duration: 5s;
+}
+td {
+    border: 5px solid black;
+    cursor: pointer;
+}
+td, tr {
+    width: 33%;
+    height: 33%;
+}
+table td:first-child:hover {
+    background-color: rgba(172, 255, 47, 0.5);
+}
+table td:nth-child(2):hover {
+    background-color: rgba(255, 105, 180, 0.5);
+}
+table td:last-child:hover {
+    background-color: rgba(30, 143, 255, 0.5);
+}
+table tr:first-child td {
+    border-top: 0;
+}
+table td:first-child {
+    border-left: 0;
+}
+table tr:last-child td {
+    border-bottom: 0;
+}
+table td:last-child {
+    border-right: 0;
+}
+main img {
+    position: relative;
+    left: 1rem;
+    width: 8rem;
+    height: 8rem;
+    z-index: 1;
+}
+.btn-finish {
+    opacity: 100%;
+    transition: opacity 1s ease-in;
+    position: absolute;
+    z-index: 5;
+}
+button:hover {
+    cursor: pointer;
+}
+
+/* footer players turn and points, and copyright note */
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    height: 15%;
+    margin: 0;
+    padding: 0;
+}
+footer img {
+    width: 5rem;
+    height: 5rem;
+}
+#players {
+    display: flex;
+}
+
+/* Keyframes classes */
+@keyframes disappear {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+/* Easy acces classes */
+.d-none{
+    display: none;
+}
+.player-no-turn {
+    opacity: 25%;
+    transition: opacity 1s ease-out;
+}
+
+/* Line classes */
+.line1 {
+    position: relative;
+    top: 47%;
+    height: 10px;
+    width: 250%;
+    left: 36%;
+    right: 0%;
+    background-color: black;
+    transition: transform 225ms ease-in-out;
+}
+.line-diagonal-one {
+    position: relative;
+    top: 47%;
+    height: 10px;
+    width: 250%;
+    left: 36%;
+    right: 0%;
+    background-color: black;
+    z-index: 2;
+}
+.line-diagonal-two {
+    position: relative;
+    top: 47%;
+    height: 10px;
+    width: 250%;
+    left: 36%;
+    right: 0%;
+    background-color: black;
+    z-index: 2;
+}
+
+
+
+
