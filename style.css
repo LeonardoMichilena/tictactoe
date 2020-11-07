@@ -116,12 +116,13 @@ table tr:last-child td {
 table td:last-child {
     border-right: 0;
 }
-main img {
+main div img{
     position: relative;
+    top: 0;
     left: 1rem;
     width: 8rem;
     height: 8rem;
-    z-index: 1;
+    z-index: -1;
 }
 .btn-finish {
     opacity: 100%;
@@ -154,8 +155,35 @@ footer img {
 
 /* Keyframes classes */
 @keyframes disappear {
-    from {opacity: 0%;}
-    to {opacity: 100%;}
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes drawLine {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes drawLineDiagonalOne {
+    0% {
+        transform: scale(0) rotateZ(45deg);
+  
+    }
+    100% {
+        transform: scale(1) rotateZ(45deg);
+    }
+}
+@keyframes drawLineDiagonalTwo {
+    0% {
+        transform: scale(0) rotateZ(130deg);
+
+        
+    }
+    100% {
+        transform: scale(1) rotateZ(130deg);
+    }
 }
 
 /* Easy acces classes */
@@ -163,40 +191,50 @@ footer img {
     display: none;
 }
 .player-no-turn {
-    opacity: 25%;
+    opacity: 0.25;
     transition: opacity 1s ease-out;
 }
 
 /* Line classes */
-.line1 {
-    position: relative;
-    top: 47%;
+.line-horizontal{ 
+    position: absolute;
+    top: 15%;
     height: 10px;
-    width: 250%;
-    left: 36%;
-    right: 0%;
+    width: 100%;
     background-color: black;
-    transition: transform 225ms ease-in-out;
+    z-index: 2;
+    animation: drawLine 1s ease-out;
+}
+.line-vertical {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 10px;
+    height: 100%;
+    background-color: black;
+    z-index: 2;
+    animation: drawLine 1s ease-out;
 }
 .line-diagonal-one {
-    position: relative;
-    top: 47%;
+    position: absolute;
     height: 10px;
-    width: 250%;
-    left: 36%;
-    right: 0%;
-    background-color: black;
+    width: 100%;
+    top: 45%;
+    transform: rotateZ(45deg) scale(1);
     z-index: 2;
+    background-color: black;
+    animation: drawLineDiagonalOne 1s ease-out;
 }
 .line-diagonal-two {
-    position: relative;
-    top: 47%;
+    position: absolute;
+    top: 55%;
     height: 10px;
-    width: 250%;
-    left: 36%;
-    right: 0%;
+    width: 100%;
+    left: 0;
+    transform: rotateZ(130deg) scale(1);
     background-color: black;
     z-index: 2;
+    animation: drawLineDiagonalTwo 1s ease-out;
 }
 
 

@@ -55,11 +55,11 @@ function fillShape(id) {
         movesCount++;
         fields[id] = currentPlayer;
         if (currentPlayer == "X") {
-            document.getElementById(id).innerHTML = "<img src='./img/cross.png'>";
+            document.getElementById(id).innerHTML = "<div><img src='./img/cross.png'></div>";
             currentPlayer = "O";
             showTurn();
         } else {
-            document.getElementById(id).innerHTML = "<img src='./img/circle.png'>";
+            document.getElementById(id).innerHTML = "<div><img src='./img/circle.png'></div>";
             currentPlayer = "X";
             showTurn();
         }
@@ -101,35 +101,36 @@ function finishGame() {
     addClass("main-game","main-game-block");
     setTimeout(function(){
         removeClass("btn-finish","d-none");
-        document.getElementById("cross").innerHTML = `<img src="./img/cross.png">${xWinsCount}`;
-        document.getElementById("circle").innerHTML = `<img src="./img/circle.png">${oWinsCount}`;
+        document.getElementById("cross").innerHTML = `<div><img src="./img/cross.png">${xWinsCount}</div>`;
+        document.getElementById("circle").innerHTML = `<div><img src="./img/circle.png">${oWinsCount}</div>`;
     },1000);
 }
 function drawLine (){
-    // Put possible winner combinations in arrays, each array for the posible angles for the line.
-    let horizontal = [0,1,2,3,4,5,6,7,8];
-    let vertical = [0,3,6,1,4,7,2,5,8];
-    let diagonalOne = [2,4,6];
-    let diagonalTwo = [0,4,8];
-    let j = 0;
-
-    document.getElementById(winFields[j]).insertAdjacentHTML("afterbegin","<div class='line' id='horizontal'></div>");
-                document.getElementById("horizontal").style.transform = "scaleX(0)";
-    for (i = 0; i < 7 ; i = i + 3){
-            if(winFields[j] == horizontal[i] && winFields[j+1] == horizontal[i+1] && winFields[j+2] == horizontal[i+2]){                
-                
-                setTimeout(function() {
-                    document.getElementById("horizontal").style.transform = "scaleX(1)";
-                }, 100);
-            }   else if (winFields[j] == vertical[i] && winFields[j+1] == vertical[i+1] && winFields[j+2] == vertical[i+2]){
-                    document.getElementById(winFields[j]).insertAdjacentHTML("afterbegin","<div class='line-vertical' style='transform: rotate(180deg);' id='vertical'></div>");
-                    document.getElementById("vertical").style.transform = "scaleX(1) rotate(90deg)";
-            }   else if (winFields[j] == diagonalOne[i] && winFields[j+1] == diagonalOne[i+1] && winFields[j+2] == diagonalOne[i+2]){
-                    document.getElementById(winFields[j]).insertAdjacentHTML("afterbegin","<div class='line-diagonal-one' id='diagonal1'></div>");
-                    document.getElementById("diagonal1").style.transform = "scaleX(1) rotate(45deg)";
-            }   else if (winFields[j] == diagonalTwo[i] && winFields[j+1] == diagonalTwo[i+1] && winFields[j+2] == diagonalTwo[i+2]){
-                    document.getElementById(winFields[j]).insertAdjacentHTML("afterbegin","<div class='line-diagonal-two' id='diagonal2'></div>");
-                    document.getElementById("diagonal2").style.transform = "scaleX(1) rotate(45deg)";
-            }
+    //Add div with a line and class "line-horizontal" for all the possible horizontal wins
+    if((winFields[0] == 0 && winFields[2]== 2)){
+        document.getElementById(winFields[0]).insertAdjacentHTML('beforeend',"<div id='line' class='line-horizontal'></div>");
+    } 
+    else if ((winFields[0] == 3 && winFields[2]== 5)){
+        document.getElementById(winFields[0]).insertAdjacentHTML('beforeend',"<div class='line-horizontal' style='top:50%;'></div>");
+    } 
+    else if (winFields[0] == 6 && winFields[2]== 8){
+        document.getElementById(winFields[0]).insertAdjacentHTML('beforeend',"<div class='line-horizontal' style='top:85%;'></div>");
+    }
+    //Add div with a line and class "line-vertical" for all the possible vertical wins
+    else if((winFields[0] == 0 && winFields[2] == 6)){
+        document.getElementById(winFields[0]).insertAdjacentHTML('beforeend',"<div class='line-vertical' style='height: 100%;'></div>");
+    } else if ((winFields[0] == 1 && winFields[2] == 7) ){
+        document.getElementById(winFields[0]).insertAdjacentHTML('beforeend',"<div class='line-vertical' style='left:50%;'></div>");
+    } else if ((winFields[0] == 2 && winFields[2] == 8)){
+        document.getElementById(winFields[0]).insertAdjacentHTML('beforeend',"<div class='line-vertical' style='left:85%;'></div>");
+    }
+     //Add div with a line and class "line-diagonal-one" for the diagonal "\" wins
+     else if((winFields[0] == 0 && winFields[2] == 8)){
+        document.getElementById(winFields[0]).insertAdjacentHTML('beforeend',"<div class='line-diagonal-one'></div>");
+    }
+     //Add div with a line and class "line-diagonal-two" for the diagonal "/" wins
+     else if((winFields[0] == 2 && winFields[2] == 6)){
+        document.getElementById(winFields[0]).insertAdjacentHTML('beforeend',"<div class='line-diagonal-two'></div>");
     }
 }
+
